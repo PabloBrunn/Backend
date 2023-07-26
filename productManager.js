@@ -1,5 +1,4 @@
-const { log } = require('console')
-const fs = require('fs')
+import fs from 'fs'
 
 class ProductManager {
     constructor(path) {
@@ -121,18 +120,7 @@ const producto4 = {
     stock: 70,
 }
 
+const manager = new ProductManager('Products.json')
 
+export default ProductManager
 
-async function prueba() {
-    const manager = new ProductManager('Products.json')
-    //await manager.addProduct(producto4)
-    //const consultar = await manager.getProducts()
-    //console.log(consultar);
-    //const consultarId = await manager.getProductById(2)
-    //console.log(consultarId);
-    //await manager.deleteProduct(5)
-    //await manager.updateProduct(4, { title: "netbook",price: 56000 })
-    
-}
-
-prueba()
