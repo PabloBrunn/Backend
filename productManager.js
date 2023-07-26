@@ -130,7 +130,7 @@ async function prueba() {
     //console.log(consultar);
     //const consultarId = await manager.getProductById(2)
     //console.log(consultarId);
-    await manager.deleteProduct(5)
+    //await manager.deleteProduct(5)
     //await manager.updateProduct(4, { title: "netbook",price: 56000 })
     
 }
