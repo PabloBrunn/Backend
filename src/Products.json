@@ -5,6 +5,7 @@
         "price": 23000,
         "thumbnail": "sin imagen",
         "code": 4557,
+        "status": "true",
         "stock": 50,
         "id": 1
     },
@@ -14,6 +15,7 @@
         "price": 43000,
         "thumbnail": "sin imagen",
         "code": 4567,
+        "status": "true",
         "stock": 20,
         "id": 2
     },
@@ -23,6 +25,7 @@
         "price": 28000,
         "thumbnail": "sin imagen",
         "code": 4593,
+        "status": "true",
         "stock": 30,
         "id": 3
     },
@@ -32,6 +35,7 @@
         "price": 56000,
         "thumbnail": "sin imagen",
         "code": 4529,
+        "status": "true",
         "stock": 70,
         "id": 4
     }

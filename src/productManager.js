@@ -30,6 +30,7 @@ class ProductManager {
             }
             arrayProd.push({ ...obj, id })
             await fs.promises.writeFile(this.path, JSON.stringify(arrayProd))
+            return arrayProd
         } catch (error) {
             return error
         }
@@ -84,43 +85,6 @@ class ProductManager {
 
 
 
-const producto1 = {
-    title: "celular",
-    description: "telefono movil",
-    price: 23000,
-    thumbnail: "sin imagen",
-    code: 4557,
-    stock: 50,
-}
 
-const producto2 = {
-    title: "TV",
-    description: "television",
-    price: 43000,
-    thumbnail: "sin imagen",
-    code: 4567,
-    stock: 20,
-}
-
-const producto3 = {
-    title: "PC",
-    description: "computadora",
-    price: 28000,
-    thumbnail: "sin imagen",
-    code: 4593,
-    stock: 30,
-}
-
-const producto4 = {
-    title: "notbook",
-    description: "computadora portatil",
-    price: 32000,
-    thumbnail: "sin imagen",
-    code: 4529,
-    stock: 70,
-}
-
-const manager = new ProductManager('Products.json')
-
-export default ProductManager
+export default ProductManager;
 
