@@ -47,6 +47,7 @@ class CarritoManager {
         const carritos = await this.getCarritos()
         const carrito = carritos.find(p=>p.id===idCarrito)
         const prodIndex = carrito.prods.findIndex(p=>p.prod===idProd)
+        console.log(prodIndex,idCarrito,idProd)
         if(prodIndex===-1){
             carrito.prods.push({prod:idProd,quantity:1})
         }else{
