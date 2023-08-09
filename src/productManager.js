@@ -83,7 +83,7 @@ class ProductManager {
 
 }
 
-const manager = new ProductManager('./Products.json');
+
 
 
 export default ProductManager;

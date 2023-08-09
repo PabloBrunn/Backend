@@ -4,7 +4,7 @@ import ProductManager from '../productManager.js';
 
 const router = Router()
 
-
+const manager = new ProductManager('./Products.json');
 
 
 
