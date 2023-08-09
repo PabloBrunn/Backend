@@ -26,7 +26,7 @@ router.post('/',async(req,res)=>{
 })
 
 
-router.post('/:idCarrito/carritos/:idProd',async(req,res)=>{
+router.post('/:idCarrito/productos/:idProd',async(req,res)=>{
     const {idCarrito,idProd} = req.params
     try {
         const addProd = await manager.addProd(+idCarrito,+idProd)
