@@ -5,7 +5,9 @@ import carritoRouter from './routes/cart.routes.js'
 import viewsRouter from './routes/views.routes.js'
 import { engine } from 'express-handlebars';
 import { Server } from "socket.io";
+import ProductManager from './productManager.js'
 
+const prods= new ProductManager(__dirname+'/Products.json')
 
 
 
@@ -41,13 +43,17 @@ const httpServer = app.listen(8080, () => {
 
 const socketServer = new Server(httpServer);
 
-socketServer.on('connection', async (socket) => {
-    console.log('cliente conectado', socket.id);
-
-    socket.emit('allProds', products);
 
 
-    socket.on('disconnect', () => {
-        console.log('Cliente desconectado');
-    });
-});
+
+socketServer.on('connection', async (socket)=>{
+    console.log('cliente conectado');
+
+    const product = await prods.getProducts()
+
+    socket.emit('productos',product)
+
+    socket.on('disconnect',()=>{
+        console.log('cliente desconectado');
+    })
+})

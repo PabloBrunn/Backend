@@ -19,10 +19,9 @@ router.get('/', async (req, res) => {
 
 router.get('/realTimeProducts',async (req,res)=>{
     try {
-        const products = await prods.getProducts();
-        res.render('realTimeProducts', { products });
+        res.render('realTimeProducts');
     } catch (error) {
-        res.status(500).json({ error });
+        res.status(500).send("Error al obtener los productos en vivo");
     }
 })
 

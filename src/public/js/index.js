@@ -1,17 +1,18 @@
-import { io } from "socket.io-client";
-
-const socket = io();
-
-socket.on("connect", () => {
-    console.log("Conectado al servidor de sockets");
-});
+const socketClient = io();
 
 
-socket.on("allProds", (data) => {
+socketClient.on("productos", (data) => {
     console.log("Productos en tiempo real:", data);
+
+    const divProd = document.getElementById("divProd");
+    let html = '<ul>';
+    data.forEach(product => {
+        html += `<li>${product.title} - ${product.price}</li>`;
+    });
+    html += '</ul>';
+    
+    divProd.innerHTML = html;
 });
 
 
-socket.on("disconnect", () => {
-    console.log("Desconectado del servidor de sockets");
-});
+

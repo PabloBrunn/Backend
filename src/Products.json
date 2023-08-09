@@ -2,7 +2,7 @@
     {
         "title": "celular",
         "description": "telefono movil",
-        "price": 23000,
+        "price": 25000,
         "thumbnail": "sin imagen",
         "code": 4557,
         "status": "true",
@@ -38,5 +38,38 @@
         "status": "true",
         "stock": 70,
         "id": 4
+    },
+    {
+        "title": "auriculares",
+        "description": "auriculares inalámbricos",
+        "price": 1200,
+        "thumbnail": "sin imagen",
+        "code": 8746,
+        "status": "true",
+        "stock": 50,
+        "id": 5
+    },
+    {
+        "title": "teclado",
+        "description": "teclado mecánico para juegos",
+        "price": 3000,
+        "thumbnail": "sin imagen",
+        "code": 6138,
+        "status": "true",
+        "stock": 30,
+        "id": 6
+    },
+    {
+        "title": "monitor",
+        "description": "monitor de alta definición",
+        "price": 8000,
+        "thumbnail": "sin imagen",
+        "code": 9901,
+        "status": "true",
+        "stock": 20,
+        "id": 7
     }
+    
+    
+    
 ]
