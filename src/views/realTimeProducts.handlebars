@@ -1,6 +1,9 @@
-<div id="divProd">
-    <p>No hay Productos Cargados</p>
-</div>
+<h1>Productos en Tiempo Real</h1>
+    <ul>
+        {{#each products}}
+        <li>{{title}} - {{price}}</li>
+        {{/each}}
+    </ul>
 
 
 

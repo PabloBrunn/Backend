@@ -36,17 +36,18 @@ app.use('/home',viewsRouter)
 
 
 const httpServer = app.listen(8080, () => {
-    console.log('Escuchando al puerto 8080')
-})
+    console.log('Escuchando al puerto 8080');
+});
+
+const socketServer = new Server(httpServer);
+
+socketServer.on('connection', async (socket) => {
+    console.log('cliente conectado', socket.id);
+
+    socket.emit('allProds', products);
 
 
-
-
-const socketServer = new Server(httpServer)
-
-socketServer.on('connection',(socket)=>{
-    console.log('cliente conectado',socket.id)
-    socket.on('disconnect',()=>{
-        console.log('Cliente desconectado')
-    })
-})
+    socket.on('disconnect', () => {
+        console.log('Cliente desconectado');
+    });
+});

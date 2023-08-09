@@ -1,17 +1,16 @@
 import { Router } from "express";
-import ProductManager from '../productManager.js';
+import{__dirname} from '../utils.js'
+import ProductManager from '../productManager.js'
 
-
+const prods= new ProductManager(__dirname+'/Products.json')
 
 const router = Router()
 
-const manager = new ProductManager('./Products.json');
-
 router.get('/', async (req, res) => {
+    
     try {
         const { limit } = req.query; 
-        const prod = await manager.getProducts();
-
+        const prod =  await prods.getProducts()
         const limitNumber = limit;
         const productsLimited = limitNumber ? prod.slice(0, limitNumber) : prod;
 
@@ -25,7 +24,7 @@ router.get('/', async (req, res) => {
 router.get('/:idProd', async (req, res) => {
     const { idProd } = req.params
     try {
-        const prod = await manager.getProductById(+idProd) 
+        const prod = await prods.getProductById(+idProd) 
         res.status(200).json({ message: 'productos', prod })
     } catch (error) {
         res.status(500).json({ error })
@@ -35,7 +34,7 @@ router.get('/:idProd', async (req, res) => {
 router.post('/',async(req,res)=>{
     console.log(req.body);
     try {
-        const newProd = await manager.addProduct(req.body)
+        const newProd = await prods.addProduct(req.body)
         res.status(200).json({ message: 'Product created', user: newProd })
     } catch (error) {
         res.status(500).json({ error })
@@ -46,7 +45,7 @@ router.post('/',async(req,res)=>{
 router.delete('/:idProd',async(req,res)=>{
     const {idProd} = req.params
 try {
-    const prodDelete = await manager.deleteProduct(+idProd)
+    const prodDelete = await prods.deleteProduct(+idProd)
     res.status(200).json({message:'Product deleted'})
 } catch (error) {
     res.status(500).json({ error })
@@ -57,7 +56,7 @@ try {
 router.put('/:idProd',async(req,res)=>{
     const {idProd} = req.params
     try {
-        const prodUpdated = await manager.updateProduct(+idProd,req.body)
+        const prodUpdated = await prods.updateProduct(+idProd,req.body)
         res.status(200).json({message: 'Product updated'})
     } catch (error) {
         res.status(500).json({ error })
