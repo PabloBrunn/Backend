@@ -4,13 +4,20 @@ import ProductManager from '../productManager.js';
 
 const router = Router()
 
-const manager = new ProductManager('./Products.json');
 
-const prods = await manager.getProducts();
 
-router.get('/',(req,res)=>{
-    res.render('home',{prods})
-})
+
+
+router.get('/', async (req, res) => {
+    try {
+        const prods = await manager.getProducts();
+        console.log(prods);
+        res.render('home', { prods });
+    } catch (error) {
+        console.error("Error al obtener los productos:", error);
+        res.status(500).send("Error al obtener los productos");
+    }
+});
 
 
 router.get('/realTimeProducts',(req,res)=>{
@@ -20,4 +27,4 @@ router.get('/realTimeProducts',(req,res)=>{
 
 
 
-export default router
+export default router;

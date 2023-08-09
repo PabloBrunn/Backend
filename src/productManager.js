@@ -11,10 +11,10 @@ class ProductManager {
                 const infoArchivo = await fs.promises.readFile(this.path, 'utf-8')
                 return JSON.parse(infoArchivo)
             } else {
-                return []
+                return ["error al cargar archivo"]
             }
         } catch (error) {
-            return error
+            throw new Error(`Error al cargar los productos`);
         }
     }
 
@@ -83,7 +83,7 @@ class ProductManager {
 
 }
 
-
+const manager = new ProductManager('./Products.json');
 
 
 export default ProductManager;
